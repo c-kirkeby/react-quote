@@ -10,8 +10,21 @@ export default props => {
 }
 
 const CardStyle = styled.div`
-  border: 0;
-  box-shadow: 0 10px 40px 0 rgba(80,4,80,0.07), 0 2px 9px 0 rgba(60,50,90,0.06);
-  background: #fefefe;
+  padding: 48px;
   display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 250px;
+  box-shadow: ${props => props.theme.boxShadow};
+  background: #fefefe;
+  border-radius: 4px;
+`
+
+export const CardTitle = styled.h2`
+  text-align: center;
+  font-size: 2rem;
+`
+
+export const CardBody = styled.p`
+  font-size: 1rem;
 `
