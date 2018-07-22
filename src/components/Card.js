@@ -10,6 +10,7 @@ export default props => {
 }
 
 export const CardButton = styled.button`
+  font-family: 'Lato', sans-serif;
   box-sizing: inherit;
   flex: 1;
   display: block;
@@ -25,25 +26,26 @@ export const CardButton = styled.button`
 export const ButtonList = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
 `
 
 const Card = styled.div`
   padding: 48px;
   display: flex;
   flex-direction: column;
-  min-width: 200px;
-  min-height: 250px;
+  min-width: 150px;
+  min-height: 100px;
   box-shadow: ${props => props.theme.boxShadow};
   background: #fefefe;
   border-radius: 4px;
 `
 
 export const CardTitle = styled.h2`
+  font-family: 'Raleway', sans-serif;
   text-align: ${props => props.center ? 'center' : 'justify'};
   font-size: 2rem;
 `
 
 export const CardBody = styled.p`
   font-size: 1rem;
+  font-family: 'Lato';
 `

@@ -1,21 +1,10 @@
 import React, { Component } from 'react'
 import styled, { injectGlobal, ThemeProvider } from 'styled-components';
+import '../assets/fonts.css'
+import '../globalStyles'
 import Card, { CardTitle, CardBody, CardButton, ButtonList } from './Card'
 import Background from './Background'
 import Quote from './Quote'
-
-// CSS reset. Would like to investigate a better way to do this.
-injectGlobal`
-  html {
-    box-sizing: border-box;
-  }
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    font-size: 10px;
-  }
-`
 
 const theme = {
   success: '#28a745',
@@ -44,7 +33,6 @@ class App extends Component {
               <CardBody>
                 <Quote />
                 <ButtonList>
-                  <div></div>
                   <CardButton 
                     type="button" 
                     success

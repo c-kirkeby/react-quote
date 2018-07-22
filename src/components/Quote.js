@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import axios from 'axios'
 
 const endpoint = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
@@ -17,15 +18,18 @@ export default class Quote extends Component {
   renderQuote() {
     if (!this.state.isLoading && this.state.quote !== '') {
       return (
-        <React.Fragment>
-          {this.state.quote} - {this.state.author}
-        </React.Fragment>
+        <QuoteStyle>
+          {this.state.quote}
+          <Author>
+            — {this.state.author}
+          </Author>
+        </QuoteStyle>
       )
     }
     return (
-      <React.Fragment>
+      <QuoteStyle>
         Loading...
-      </React.Fragment>
+      </QuoteStyle>
     )
   }
 
@@ -61,3 +65,16 @@ export default class Quote extends Component {
     )
   }
 }
+
+const QuoteStyle = styled.div`
+  flex-direction: column;
+  display: flex;
+`
+
+export const Author = styled.span`
+  text-align: right;
+  font-size: .75rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #868e96;
+`
