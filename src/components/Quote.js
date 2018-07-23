@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
-
-const endpoint = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
+import api from '../utils/api'
 
 export default class Quote extends Component {
   constructor(props) {
@@ -38,7 +36,12 @@ export default class Quote extends Component {
       isLoading: true
     })
     try {
-      const response = await axios(endpoint)
+      const response = await api.get('posts', {
+        params: {
+          'filter[orderBy]': 'rand',
+          'filter[posts_per_page]': 1
+        }
+      })
       const post = response.data[0]
       this.setState({
         quote: post.content.replace(/(<([^>]+)>)/ig, ""),
