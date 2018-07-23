@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled, { injectGlobal, ThemeProvider } from 'styled-components';
 import '../assets/fonts.css'
+import { Facebook, Twitter } from 'react-feather'
 import '../globalStyles'
 import Card, { CardTitle, CardBody, CardButton, ButtonList } from './Card'
 import Background from './Background'
@@ -34,18 +35,21 @@ class App extends Component {
                 <Quote />
                 <ButtonList>
                   <CardButton 
-                    type="button" 
-                    success
+                    type="button"
                     large
+                    primary
                   >
                     New
                   </CardButton>
                   <CardButton 
-                    type="button"
-                    primary 
-                    large
+                    type="button" 
                   >
-                    Tweet
+                    <Facebook />
+                  </CardButton>
+                  <CardButton
+                    type="button"
+                  >
+                    <Twitter />
                   </CardButton>
                 </ButtonList>
               </CardBody>
