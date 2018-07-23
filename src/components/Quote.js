@@ -26,7 +26,7 @@ export default class Quote extends Component {
     }
     return (
       <QuoteStyle>
-        Loading...
+        Loading quote...
       </QuoteStyle>
     )
   }

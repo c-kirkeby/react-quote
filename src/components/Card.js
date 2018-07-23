@@ -32,7 +32,8 @@ const Card = styled.div`
   padding: 48px;
   display: flex;
   flex-direction: column;
-  min-width: 150px;
+  min-width: 400px;
+  max-width: 500px;
   min-height: 100px;
   box-shadow: ${props => props.theme.boxShadow};
   background: #fefefe;
