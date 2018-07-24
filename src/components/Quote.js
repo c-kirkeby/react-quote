@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import api from '../utils/api'
+const he = require('he')
 
 export default class Quote extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class Quote extends Component {
     if (!this.state.isLoading && this.state.quote !== '') {
       return (
         <QuoteStyle>
-          {this.state.quote}
+           “{this.state.quote}”
           <Author>
             — {this.state.author}
           </Author>
@@ -43,8 +44,11 @@ export default class Quote extends Component {
         }
       })
       const post = response.data[0]
+      let message = post.content.replace(/(<([^>]+)>)/ig, "")
+      message = message.replace(/\s+$/, "")
+      message = he.decode(message)
       this.setState({
-        quote: post.content.replace(/(<([^>]+)>)/ig, ""),
+        quote: message,
         author: post.title,
         isLoading: false
       })
@@ -69,7 +73,7 @@ export default class Quote extends Component {
   }
 }
 
-const QuoteStyle = styled.div`
+const QuoteStyle = styled.p`
   flex-direction: column;
   display: flex;
 `
