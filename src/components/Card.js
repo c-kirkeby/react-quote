@@ -36,7 +36,7 @@ export const ButtonList = styled.div`
 `
 
 const Card = styled.div`
-  padding: 48px;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   min-width: 250px;

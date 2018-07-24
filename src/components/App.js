@@ -16,7 +16,7 @@ const theme = {
 
 const AppStyle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100vh;
 `
@@ -28,10 +28,10 @@ class App extends Component {
         <Background>
           <AppStyle>
             <Card>
+              <CardBody>
               <CardTitle center>
                 Quote of the Day
               </CardTitle>
-              <CardBody>
                 <Quote />
                 <ButtonList>
                   <CardButton 
