@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled, { injectGlobal, ThemeProvider } from 'styled-components';
 import '../assets/fonts.css'
-import { Facebook, Twitter } from 'react-feather'
+import Facebook from 'react-feather/dist/icons/facebook'
+import Twitter from 'react-feather/dist/icons/twitter'
 import '../globalStyles'
 import Card, { CardTitle, CardBody, CardButton, ButtonList } from './Card'
 import Background from './Background'
