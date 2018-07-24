@@ -4,7 +4,9 @@ import '../assets/fonts.css'
 import Facebook from 'react-feather/dist/icons/facebook'
 import Twitter from 'react-feather/dist/icons/twitter'
 import '../globalStyles'
-import Card, { CardTitle, CardBody, CardButton, ButtonList } from './Card'
+import { Card, CardTitle, CardBody } from './Card'
+import Button from './Button'
+import ButtonList from './ButtonList'
 import Background from './Background'
 import Quote from './Quote'
 
@@ -35,23 +37,23 @@ class App extends Component {
               </CardTitle>
                 <Quote />
                 <ButtonList>
-                  <CardButton 
+                  <Button 
                     type="button"
                     large
                     primary
                   >
                     New
-                  </CardButton>
-                  <CardButton 
+                  </Button>
+                  <Button 
                     type="button" 
                   >
                     <Facebook />
-                  </CardButton>
-                  <CardButton
+                  </Button>
+                  <Button
                     type="button"
                   >
                     <Twitter />
-                  </CardButton>
+                  </Button>
                 </ButtonList>
               </CardBody>
             </Card>
