@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import styled, { injectGlobal, ThemeProvider } from 'styled-components';
+import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 import '../assets/fonts.css'
-import Facebook from 'react-feather/dist/icons/facebook'
-import Twitter from 'react-feather/dist/icons/twitter'
 import '../globalStyles'
 import { Card, CardTitle, CardBody } from './Card'
-import Button from './Button'
-import ButtonList from './ButtonList'
 import Background from './Background'
 import Quote from './Quote'
+import QuoteContainer from './QuoteContainer'
 
 const theme = {
   success: '#28a745',
@@ -19,7 +16,7 @@ const theme = {
 
 const AppStyle = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 100vh;
 `
@@ -32,29 +29,10 @@ class App extends Component {
           <AppStyle>
             <Card>
               <CardBody>
-              <CardTitle center>
-                Quote of the Day
-              </CardTitle>
-                <Quote />
-                <ButtonList>
-                  <Button 
-                    type="button"
-                    large
-                    primary
-                  >
-                    New
-                  </Button>
-                  <Button 
-                    type="button" 
-                  >
-                    <Facebook />
-                  </Button>
-                  <Button
-                    type="button"
-                  >
-                    <Twitter />
-                  </Button>
-                </ButtonList>
+                <CardTitle center>
+                  Quote of the Day
+                </CardTitle>
+                <QuoteContainer />
               </CardBody>
             </Card>
           </AppStyle>

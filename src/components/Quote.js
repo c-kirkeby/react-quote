@@ -1,84 +1,67 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import api from '../utils/api'
-const he = require('he')
+import Button from './Button'
+import ButtonList from './ButtonList'
+import Facebook from 'react-feather/dist/icons/facebook'
+import Twitter from 'react-feather/dist/icons/twitter'
 
-export default class Quote extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      quote: '',
-      author: '',
-      isLoading: false,
-      error: ''
-    }
-  }
+export default props => {
+  const { handleNewQuote } = props
+  return (
+    <QuoteBody>
+      <QuoteContent>
+        {renderQuote(props)}
+      </QuoteContent>
+      <ButtonList>
+        <Button onClick={handleNewQuote} type="button" large primary>
+          New
+        </Button>
+        <Button type="button">
+          <Facebook />
+        </Button>
+        <Button type="button">
+          <Twitter />
+        </Button>
+      </ButtonList>
+    </QuoteBody>
+  )
+}
 
-  renderQuote() {
-    if (!this.state.isLoading && this.state.quote !== '') {
-      return (
-        <QuoteStyle>
-           “{this.state.quote}”
-          <Author>
-            — {this.state.author}
-          </Author>
-        </QuoteStyle>
-      )
-    }
-    return (
-      <QuoteStyle>
-        Loading quote...
-      </QuoteStyle>
-    )
-  }
-
-  async getQuote() {
-    this.setState({
-      isLoading: true
-    })
-    try {
-      const response = await api.get('posts', {
-        params: {
-          'filter[orderBy]': 'rand',
-          'filter[posts_per_page]': 1
-        }
-      })
-      const post = response.data[0]
-      let message = post.content.replace(/(<([^>]+)>)/ig, "")
-      message = message.replace(/\s+$/, "")
-      message = he.decode(message)
-      this.setState({
-        quote: message,
-        author: post.title,
-        isLoading: false
-      })
-    } catch (error) {
-      this.setState({
-        error,
-        isLoading: false
-      })
-    }
-  }
-
-  async componentDidMount() {
-    this.getQuote()
-  }
-
-  render() {
+const renderQuote = props => {
+  if (!props.isLoading && props.quote !== '') {
     return (
       <React.Fragment>
-        {this.renderQuote()}
+        “{props.quote}”
+        <QuoteAuthor>
+          — {props.author}
+        </QuoteAuthor>
       </React.Fragment>
     )
   }
+  return (
+    <React.Fragment>
+      Loading quote...
+    </React.Fragment>
+  )
 }
 
-const QuoteStyle = styled.p`
+const QuoteBody = styled.div`
+  display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  flex-grow: 1;
+`
+
+const QuoteContent = styled.p`
+  flex-direction: column;
+  flex-basis: auto;
+  justify-content: stretch;
+  flex: 1 1 auto;
+  flex-grow: 1;
   display: flex;
 `
 
-export const Author = styled.span`
+export const QuoteAuthor = styled.span`
   text-align: right;
   font-size: .75rem;
   padding-top: 5px;
