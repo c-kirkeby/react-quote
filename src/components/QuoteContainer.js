@@ -36,12 +36,13 @@ export default class QuoteContainer extends Component {
         }
       })
       const post = response.data[0]
-      let message = post.content.replace(/(<([^>]+)>)/ig, "")
-      message = message.replace(/\s+$/, "")
-      message = he.decode(message)
+      let quote = post.content.replace(/(<([^>]+)>)/ig, "")
+      quote = quote.replace(/\s+$/, "")
+      quote = he.decode(quote)
+      const author = he.decode(post.title)
       this.setState({
-        quote: message,
-        author: post.title,
+        quote,
+        author,
         isLoading: false
       })
     } catch (error) {
