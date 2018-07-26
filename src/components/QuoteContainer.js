@@ -31,9 +31,8 @@ export default class QuoteContainer extends Component {
     try {
       const response = await api.get('posts', {
         params: {
-          'filter[orderBy]': 'rand',
-          'filter[posts_per_page]': 1,
-          _: '8ghhghuygiuiiiii'
+          'filter[orderby]': 'rand',
+          'filter[posts_per_page]': 1
         }
       })
       const post = response.data[0]
