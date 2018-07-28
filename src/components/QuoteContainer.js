@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Quote from './Quote'
 import api from '../utils/api'
 import he from 'he'
+import uuidv4 from 'uuid/v4'
 
 export default class QuoteContainer extends Component {
   constructor(props) {
@@ -32,7 +33,8 @@ export default class QuoteContainer extends Component {
       const response = await api.get('posts', {
         params: {
           'filter[orderby]': 'rand',
-          'filter[posts_per_page]': 1
+          'filter[posts_per_page]': 1,
+          _: uuidv4()
         }
       })
       const post = response.data[0]
