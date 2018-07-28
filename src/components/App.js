@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import styled, { injectGlobal, ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import '../assets/fonts.css'
 import '../globalStyles'
 import { Card, CardTitle, CardBody } from './Card'
 import Background from './Background'
-import Quote from './Quote'
 import QuoteContainer from './QuoteContainer'
 
 const theme = {
