@@ -2,24 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import ButtonList from './ButtonList'
-import Facebook from 'react-feather/dist/icons/facebook'
 import Twitter from 'react-feather/dist/icons/twitter'
 
 export default props => {
-  const { handleNewQuote } = props
+  const { handleNewQuote, handleTwitterShare } = props
   return (
     <QuoteBody>
       <QuoteContent>
         {renderQuote(props)}
       </QuoteContent>
       <ButtonList>
-        <Button onClick={handleNewQuote} type="button" large primary>
+        <Button type="button" onClick={handleNewQuote} large primary>
           New
         </Button>
-        <Button type="button">
-          <Facebook />
-        </Button>
-        <Button type="button">
+        <Button type="button" onClick={handleTwitterShare}>
           <Twitter />
         </Button>
       </ButtonList>

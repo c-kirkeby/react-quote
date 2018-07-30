@@ -14,11 +14,20 @@ export default class QuoteContainer extends Component {
       error: ''
     }
     this.handleNewQuote = this.handleNewQuote.bind(this)
+    this.handleTwitterShare = this.handleTwitterShare.bind(this)
   }
 
   handleNewQuote = (event) => {
     event.preventDefault()
     this.getQuote()
+  }
+
+  handleTwitterShare = (event) => {
+    event.preventDefault()
+    if (this.state.quote.length > 0) {
+      const url = `https://twitter.com/intent/tweet?text=${this.state.quote} —${this.state.author}`
+      window.open(url, '_blank')
+    }
   }
 
   componentDidMount() {
@@ -60,6 +69,7 @@ export default class QuoteContainer extends Component {
       <Quote
         {...this.state}
         handleNewQuote={this.handleNewQuote}
+        handleTwitterShare={this.handleTwitterShare}
       >
       </Quote>
     )
