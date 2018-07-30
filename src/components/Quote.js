@@ -5,17 +5,17 @@ import ButtonList from './ButtonList'
 import Twitter from 'react-feather/dist/icons/twitter'
 
 export default props => {
-  const { handleNewQuote, handleTwitterShare } = props
+  const { handleNewQuote, handleTwitterShare, isLoading } = props
   return (
     <QuoteBody>
-      <QuoteContent>
+      <React.Fragment>
         {renderQuote(props)}
-      </QuoteContent>
+      </React.Fragment>
       <ButtonList>
-        <Button type="button" onClick={handleNewQuote} large primary>
+        <Button type="button" onClick={handleNewQuote} disabled={isLoading} large primary>
           New
         </Button>
-        <Button type="button" onClick={handleTwitterShare}>
+        <Button type="button" onClick={handleTwitterShare} disabled={isLoading}>
           <Twitter />
         </Button>
       </ButtonList>
@@ -26,18 +26,24 @@ export default props => {
 const renderQuote = props => {
   if (!props.isLoading && props.quote !== '') {
     return (
-      <React.Fragment>
+      <QuoteContent>
         “{props.quote}”
         <QuoteAuthor>
           — {props.author}
         </QuoteAuthor>
-      </React.Fragment>
+      </QuoteContent>
+    )
+  } else if (props.error !== '' && props.error.length > 0) {
+    return (
+      <QuoteError>
+        {props.error}
+      </QuoteError>
     )
   }
   return (
-    <React.Fragment>
+    <QuoteContent>
       Loading quote...
-    </React.Fragment>
+    </QuoteContent>
   )
 }
 
@@ -48,12 +54,14 @@ const QuoteBody = styled.div`
   flex-grow: 1;
 `
 
+const QuoteError = styled.p`
+  text-align: center;
+`
+
 const QuoteContent = styled.p`
   flex-direction: column;
-  flex-basis: auto;
   justify-content: stretch;
   flex: 1 1 auto;
-  flex-grow: 1;
   display: flex;
 `
 

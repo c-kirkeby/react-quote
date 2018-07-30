@@ -17,6 +17,9 @@ const Button = styled.button`
     color: ${props => props.primary ? props.theme.primary : props.theme.white};
     transition: 0.2s ease-out;
   }
+  :disabled {
+    opacity: 80%;
+  }
 `
 
 export default Button
