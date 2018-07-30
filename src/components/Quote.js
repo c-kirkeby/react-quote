@@ -35,15 +35,15 @@ const renderQuote = props => {
     )
   } else if (props.error !== '' && props.error.length > 0) {
     return (
-      <QuoteError>
+      <QuoteWarning>
         {props.error}
-      </QuoteError>
+      </QuoteWarning>
     )
   }
   return (
-    <QuoteContent>
+    <QuoteWarning>
       Loading quote...
-    </QuoteContent>
+    </QuoteWarning>
   )
 }
 
@@ -54,8 +54,9 @@ const QuoteBody = styled.div`
   flex-grow: 1;
 `
 
-const QuoteError = styled.p`
+const QuoteWarning = styled.p`
   text-align: center;
+  font-size: 1.25rem;
 `
 
 const QuoteContent = styled.p`
