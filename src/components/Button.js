@@ -18,7 +18,8 @@ const Button = styled.button`
     transition: 0.2s ease-out;
   }
   :disabled {
-    opacity: 80%;
+    opacity: 0.5;
+    cursor: default;
   }
 `
 
