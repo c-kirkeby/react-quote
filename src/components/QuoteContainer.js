@@ -55,7 +55,7 @@ export default class QuoteContainer extends Component {
         quote,
         author,
         isLoading: false,
-        author: ''
+        error: ''
       })
     } catch (error) {
       this.setState({
