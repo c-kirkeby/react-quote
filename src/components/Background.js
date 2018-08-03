@@ -6,6 +6,6 @@ export default styled.div`
       rgba(42,43,57, 0.70),
       rgba(42,43,57, 0.70)
     ),
-    url('https://res.cloudinary.com/christiank/image/upload/fl_progressive/v1531656796/authBackground_dmpcsg.jpg') no-repeat center center fixed;
+    url('https://source.unsplash.com/1920x1080/?mountain,lake') no-repeat center center fixed;
   background-size: cover;
 `
