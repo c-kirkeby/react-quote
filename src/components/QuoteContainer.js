@@ -59,7 +59,7 @@ export default class QuoteContainer extends Component {
       })
     } catch (error) {
       this.setState({
-        error: 'Oops, there was an error getting your quote. Try again?',
+        error: 'Hmmm, there was an error getting your quote. 🤔 Try again?',
         isLoading: false
       })
     }

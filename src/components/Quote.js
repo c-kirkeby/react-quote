@@ -1,8 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import Twitter from 'react-feather/dist/icons/twitter'
+import Refresh from 'react-feather/dist/icons/refresh-ccw'
+import { fadeIn } from 'react-animations'
 import Button from './Button'
 import ButtonList from './ButtonList'
-import Twitter from 'react-feather/dist/icons/twitter'
 
 export default props => {
   const { handleNewQuote, handleTwitterShare, isLoading } = props
@@ -13,7 +15,7 @@ export default props => {
       </React.Fragment>
       <ButtonList>
         <Button type="button" onClick={handleNewQuote} disabled={isLoading} large primary>
-          New
+          <Refresh />
         </Button>
         <Button type="button" onClick={handleTwitterShare} disabled={isLoading}>
           <Twitter />
@@ -24,7 +26,7 @@ export default props => {
 }
 
 const renderQuote = props => {
-  if (!props.isLoading && props.quote !== '') {
+  if (props.quote !== '' && props.error === '' && !props.isLoading) {
     return (
       <QuoteContent>
         “{props.quote}”
@@ -42,10 +44,14 @@ const renderQuote = props => {
   }
   return (
     <QuoteWarning>
-      Loading quote...
+      Loading...
     </QuoteWarning>
   )
 }
+
+const loadingAnimation = keyframes`
+  ${fadeIn}
+`
 
 const QuoteBody = styled.div`
   display: flex;
@@ -57,9 +63,11 @@ const QuoteBody = styled.div`
 const QuoteWarning = styled.p`
   text-align: center;
   font-size: 1.25rem;
+  animation: 1s ${loadingAnimation};
 `
 
 const QuoteContent = styled.p`
+  animation: 1s ${loadingAnimation};
   flex-direction: column;
   justify-content: stretch;
   flex: 1 1 auto;
