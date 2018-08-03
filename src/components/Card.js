@@ -12,12 +12,12 @@ export const Card = styled.div`
 `
 
 export const CardTitle = styled.h2`
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   text-align: ${props => props.center ? 'center' : 'justify'};
   font-size: 2rem;
 `
 
 export const CardBody = styled.div`
   font-size: 1rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 `
