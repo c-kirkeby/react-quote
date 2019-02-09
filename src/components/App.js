@@ -1,9 +1,9 @@
+import { GlobalStyle } from '../GlobalStyle'
 import React, { Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import '../assets/fonts.css'
-import '../globalStyles'
-import { Card, CardTitle, CardBody } from './Card'
 import Background from './Background'
+import { Card, CardBody, CardTitle } from './Card'
 import QuoteContainer from './QuoteContainer'
 
 const theme = {
@@ -21,21 +21,24 @@ const AppStyle = styled.div`
 `
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <ThemeProvider theme={theme}>
-        <Background>
-          <AppStyle>
-            <Card>
-              <CardBody>
-                <CardTitle center>
-                  Quote of the Day
-                </CardTitle>
-                <QuoteContainer />
-              </CardBody>
-            </Card>
-          </AppStyle>
-        </Background>
+        <React.Fragment>
+          <GlobalStyle />
+          <Background>
+            <AppStyle>
+              <Card>
+                <CardBody>
+                  <CardTitle center>
+                    Quote of the Day
+                  </CardTitle>
+                  <QuoteContainer />
+                </CardBody>
+              </Card>
+            </AppStyle>
+          </Background>
+        </React.Fragment>
       </ThemeProvider>
     )
   }

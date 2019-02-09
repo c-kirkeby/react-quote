@@ -1,8 +1,6 @@
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
-
-// eslint-disable-next-line
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
   }
