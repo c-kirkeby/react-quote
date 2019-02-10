@@ -1,28 +1,35 @@
-import React, { Component } from 'react'
-import Quote from './Quote'
+import * as he from 'he'
+import * as React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import api from '../utils/api'
-import he from 'he'
-import uuidv4 from 'uuid/v4'
+import Quote from './Quote'
 
-export default class QuoteContainer extends Component {
-  constructor(props) {
+export interface IQuoteContainerState {
+  readonly quote: string,
+  readonly author: string,
+  readonly isLoading: boolean,
+  readonly error: string
+}
+
+export default class QuoteContainer extends React.PureComponent<{}, IQuoteContainerState> {
+  constructor (props: {}) {
     super(props)
     this.state = {
-      quote: '',
       author: '',
+      error: '',
       isLoading: false,
-      error: ''
+      quote: ''
     }
     this.handleNewQuote = this.handleNewQuote.bind(this)
     this.handleTwitterShare = this.handleTwitterShare.bind(this)
   }
 
-  handleNewQuote = (event) => {
+  public handleNewQuote = async (event: React.MouseEvent) => {
     event.preventDefault()
-    this.getQuote()
+    await this.getQuote()
   }
 
-  handleTwitterShare = (event) => {
+  public handleTwitterShare = (event: React.MouseEvent) => {
     event.preventDefault()
     if (this.state.quote.length > 0) {
       const url = `https://twitter.com/intent/tweet?text=${this.state.quote} —${this.state.author}`
@@ -30,32 +37,32 @@ export default class QuoteContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    this.getQuote()
+  public async componentDidMount () {
+    await this.getQuote()
   }
 
-  async getQuote() {
+  public async getQuote () {
     this.setState({
       isLoading: true
     })
     try {
       const response = await api.get('posts', {
         params: {
+          '_': uuidv4(),
           'filter[orderby]': 'rand',
-          'filter[posts_per_page]': 1,
-          _: uuidv4()
+          'filter[posts_per_page]': 1
         }
       })
       const post = response.data[0]
-      let quote = post.content.replace(/(<([^>]+)>)/ig, "")
-      quote = quote.replace(/\s+$/, "")
+      let quote = post.content.replace(/(<([^>]+)>)/ig, '')
+      quote = quote.replace(/\s+$/, '')
       quote = he.decode(quote)
       const author = he.decode(post.title)
       this.setState({
-        quote,
         author,
+        error: '',
         isLoading: false,
-        error: ''
+        quote
       })
     } catch (error) {
       this.setState({
@@ -65,14 +72,13 @@ export default class QuoteContainer extends Component {
     }
   }
 
-  render() {
+  public render () {
     return (
       <Quote
         {...this.state}
         handleNewQuote={this.handleNewQuote}
         handleTwitterShare={this.handleTwitterShare}
-      >
-      </Quote>
+      />
     )
   }
 }

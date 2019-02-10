@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-standard"
+  ],
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "jsx-boolean-value": [true, "never"]
+  }
+}

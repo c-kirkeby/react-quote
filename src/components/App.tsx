@@ -1,16 +1,16 @@
-import { GlobalStyle } from '../GlobalStyle'
-import React, { Component } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import * as React from 'react'
 import '../assets/fonts.css'
+import { GlobalStyle } from '../GlobalStyle'
+import styled, { ThemeProvider } from '../styled-components'
 import Background from './Background'
 import { Card, CardBody, CardTitle } from './Card'
 import QuoteContainer from './QuoteContainer'
 
-const theme = {
-  success: '#28a745',
+export const theme = {
+  boxShadow: '0px 0px 43px -10px black',
   primary: '#007bff',
-  white: '#fefefe',
-  boxShadow: '0px 0px 43px -10px black'
+  success: '#28a745',
+  white: '#fefefe'
 }
 
 const AppStyle = styled.div`
@@ -20,8 +20,8 @@ const AppStyle = styled.div`
   height: 100vh;
 `
 
-class App extends Component {
-  render () {
+class App extends React.Component {
+  public render () {
     return (
       <ThemeProvider theme={theme}>
         <React.Fragment>
@@ -30,9 +30,7 @@ class App extends Component {
             <AppStyle>
               <Card>
                 <CardBody>
-                  <CardTitle center>
-                    Quote of the Day
-                  </CardTitle>
+                  <CardTitle center>Quote of the Day</CardTitle>
                   <QuoteContainer />
                 </CardBody>
               </Card>

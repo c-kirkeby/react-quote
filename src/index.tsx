@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Loadable from 'react-loadable'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
+// tslint:disable-next-line
+const Loadable = require('react-loadable')
 
 const App = Loadable({
   loader: () => import('./components/App'),
-  loading() {
-    return <div></div>
-  }
+  loading: () => <div />
 })
 
 ReactDOM.render(<App />, document.getElementById('root'))
