@@ -1,8 +1,8 @@
+import { Quote } from '@react-quote/ui'
 import * as he from 'he'
 import * as React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import api from '../utils/api'
-import Quote from './Quote'
 
 export interface IQuoteContainerState {
   readonly quote: string,

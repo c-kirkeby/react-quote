@@ -1,9 +1,8 @@
+import { Background, Card, CardBody, CardTitle } from '@react-quote/ui'
 import * as React from 'react'
 import '../assets/fonts.css'
 import { GlobalStyle } from '../GlobalStyle'
 import styled, { ThemeProvider } from '../styled-components'
-import Background from './Background'
-import { Card, CardBody, CardTitle } from './Card'
 import QuoteContainer from './QuoteContainer'
 
 export const theme = {
