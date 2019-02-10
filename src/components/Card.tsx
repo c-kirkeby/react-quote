@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '../styled-components'
 
 export const Card = styled.div`
   margin: 0px 0.75rem 0px 0.75rem;
@@ -11,7 +11,7 @@ export const Card = styled.div`
   border-radius: 4px;
 `
 
-export const CardTitle = styled.h2`
+export const CardTitle = styled('h2')<{ center?: boolean }>`
   font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   text-align: ${props => props.center ? 'center' : 'justify'};
   font-size: 2rem;

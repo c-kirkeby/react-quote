@@ -1,6 +1,12 @@
-import styled from 'styled-components'
+import styled from '../styled-components'
+import * as React from 'react'
 
-const Button = styled.button`
+export interface ButtonProps {
+  readonly large?: boolean,
+  readonly primary?: boolean
+}
+
+const Button = styled('button')<ButtonProps>`
   font-family: 'Lato', sans-serif;
   box-sizing: inherit;
   flex: ${props => props.large ? '2' : '1'};

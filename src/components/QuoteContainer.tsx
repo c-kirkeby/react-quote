@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Quote from './Quote'
 import api from '../utils/api'
-import he from 'he'
-import uuidv4 from 'uuid/v4'
+import * as he from 'he'
+import { v4 as uuidv4 } from 'uuid'
 
-export default class QuoteContainer extends Component {
-  constructor(props) {
+export interface QuoteContainerState {
+  readonly quote: string,
+  readonly author: string,
+  readonly isLoading: boolean,
+  readonly error: string
+}
+
+export default class QuoteContainer extends React.PureComponent<{}, QuoteContainerState> {
+  constructor(props: {}) {
     super(props)
     this.state = {
       quote: '',
@@ -17,12 +24,12 @@ export default class QuoteContainer extends Component {
     this.handleTwitterShare = this.handleTwitterShare.bind(this)
   }
 
-  handleNewQuote = (event) => {
+  handleNewQuote = (event: React.MouseEvent) => {
     event.preventDefault()
     this.getQuote()
   }
 
-  handleTwitterShare = (event) => {
+  handleTwitterShare = (event: React.MouseEvent) => {
     event.preventDefault()
     if (this.state.quote.length > 0) {
       const url = `https://twitter.com/intent/tweet?text=${this.state.quote} —${this.state.author}`
@@ -65,14 +72,13 @@ export default class QuoteContainer extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <Quote
         {...this.state}
         handleNewQuote={this.handleNewQuote}
         handleTwitterShare={this.handleTwitterShare}
-      >
-      </Quote>
+      />
     )
   }
 }

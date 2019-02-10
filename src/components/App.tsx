@@ -1,12 +1,12 @@
 import { GlobalStyle } from '../GlobalStyle'
-import React, { Component } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import * as React from 'react'
+import styled, { ThemeProvider } from '../styled-components'
 import '../assets/fonts.css'
 import Background from './Background'
 import { Card, CardBody, CardTitle } from './Card'
 import QuoteContainer from './QuoteContainer'
 
-const theme = {
+export const theme = {
   success: '#28a745',
   primary: '#007bff',
   white: '#fefefe',
@@ -20,7 +20,7 @@ const AppStyle = styled.div`
   height: 100vh;
 `
 
-class App extends Component {
+class App extends React.Component {
   render () {
     return (
       <ThemeProvider theme={theme}>
