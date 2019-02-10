@@ -1,6 +1,6 @@
 import styled from '../styled-components'
 
-export default styled.div` 
+export default styled.div`
   background:
     linear-gradient(
       rgba(42,43,57, 0.70),

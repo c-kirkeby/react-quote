@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "lint": "standard",
+    "lint": "tslint --project tsconfig.json --format codeFrame --fix",
     "eject": "react-scripts eject"
   },
   "main": "index.js",
@@ -41,14 +41,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-typescript": "^0.14.0",
-    "standard": "^12.0.1",
-    "typescript-eslint-parser": "^22.0.0"
-  },
-  "standard": {
-    "parser": "typescript-eslint-parser",
-    "plugins": [
-      "typescript"
-    ]
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-react": "^3.6.0"
   }
 }

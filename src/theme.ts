@@ -1,4 +1,4 @@
-export default interface ThemeInterface {
+export default interface IThemeInterface {
   success: string,
   primary: string,
   white: string,

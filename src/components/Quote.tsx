@@ -1,12 +1,12 @@
 import * as React from 'react'
-import styled from '../styled-components'
-import { RefreshCcw as Refresh, Twitter } from 'styled-icons/feather'
 import posed, { PoseGroup } from 'react-pose'
-import { QuoteContainerState } from './QuoteContainer'
+import { RefreshCcw as Refresh, Twitter } from 'styled-icons/feather'
+import styled from '../styled-components'
 import Button from './Button'
 import ButtonList from './ButtonList'
+import { IQuoteContainerState } from './QuoteContainer'
 
-export interface QuoteProps extends QuoteContainerState {
+export interface IQuoteProps extends IQuoteContainerState {
   handleNewQuote: (event: React.MouseEvent<Element, MouseEvent>) => void,
   handleTwitterShare: (event: React.MouseEvent<Element, MouseEvent>) => void
 }
@@ -19,7 +19,7 @@ const TwitterIcon = styled(Twitter)`
   stroke-width: 2;
 `
 
-export default (props: QuoteProps): JSX.Element => {
+export default (props: IQuoteProps): JSX.Element => {
   const { handleNewQuote, handleTwitterShare, isLoading } = props
   return (
     <QuoteBody>
@@ -40,7 +40,7 @@ export default (props: QuoteProps): JSX.Element => {
   )
 }
 
-const renderQuote = (props: QuoteProps) => {
+const renderQuote = (props: IQuoteProps) => {
   if (props.quote !== '' && props.error === '' && !props.isLoading) {
     return (
       <QuoteContent key="quote-content">
@@ -66,12 +66,12 @@ const renderQuote = (props: QuoteProps) => {
 
 const transition = {
   enter: {
-    opacity: 1,
-    ease: 'easeInOut'
+    ease: 'easeInOut',
+    opacity: 1
   },
   exit: {
-    opacity: 0,
-    ease: 'easeInOut'
+    ease: 'easeInOut',
+    opacity: 0
   }
 }
 
