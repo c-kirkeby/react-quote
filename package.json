@@ -1,12 +1,18 @@
 {
   "name": "react-quote",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "lerna link",
-    "bootstrap": "lerna bootstrap"
+    "install": "lerna link --npm-client yarn",
+    "bootstrap": "lerna bootstrap",
+    "start:web": "lerna run start --scope=@react-quote/web",
+    "build": "lerna run build"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
