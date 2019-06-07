@@ -8221,10 +8221,10 @@ react-loadable@^5.4.0:
   dependencies:
     prop-types "^15.5.0"
 
-react-pose@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.6.tgz#265a9814eea48898dd653a92e998fc86a1366fb4"
-  integrity sha512-4i72lsjpvJT6nwbTrMtbZiZoJ65REIVtDm1u1ruEriJcBOoNNQSTkFUAdjBG6pOaATkk9OWgziBuz4PU1GI0bA==
+react-pose@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/react-pose/-/react-pose-4.0.8.tgz#91bdfafde60e4096e7878a35dcc77715bed68f24"
+  integrity sha512-WN/583nKJZkKmKg5ha+eErOGWF9GV6A5EngC7WHQX5b910X9rTlOlxzdKlUy/dDcsTRMZEtHV0Sy2gLPYsVQCQ==
   dependencies:
     "@emotion/is-prop-valid" "^0.7.3"
     hey-listen "^1.0.5"
