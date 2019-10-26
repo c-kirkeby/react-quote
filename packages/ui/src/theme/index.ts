@@ -5,7 +5,7 @@ export interface IThemeInterface {
   boxShadow: string
 }
 
-const theme = {
+const theme: IThemeInterface = {
   boxShadow: '0px 0px 43px -10px black',
   primary: '#007bff',
   success: '#28a745',

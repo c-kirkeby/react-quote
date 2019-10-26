@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { IThemeInterface } from '../theme'
 import styled from '../theme/styled-components'
 
