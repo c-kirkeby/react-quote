@@ -1,4 +1,10 @@
-import styled from '../styled-components'
+import styled from '../theme/styled-components'
+import { IThemeInterface } from '../theme'
+
+export interface ICardProps {
+  readonly center?: boolean,
+  readonly theme: IThemeInterface
+}
 
 export const Card = styled.div`
   margin: 0px 0.75rem 0px 0.75rem;
@@ -6,16 +12,16 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   flex: 0 1 500px; /* flex-grow: 0, flex-shrink: 1, flex-basis: 500px */
-  box-shadow: ${(props) => props.theme.boxShadow};
+  box-shadow: ${(props: ICardProps) => props.theme.boxShadow};
   background: #fefefe;
   border-radius: 4px;
 `
 
-export const CardTitle = styled('h2')<{ center?: boolean }>`
+export const CardTitle = styled('h2')`
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  text-align: ${(props) => (props.center ? 'center' : 'justify')};
+  text-align: ${(props: ICardProps) => (props.center ? 'center' : 'justify')};
   font-size: 2rem;
 `
 

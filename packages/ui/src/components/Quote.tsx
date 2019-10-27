@@ -1,15 +1,21 @@
 import * as React from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import { RefreshCcw as Refresh, Twitter } from 'styled-icons/feather'
-import styled from '../styled-components'
+import styled from '../theme/styled-components'
 import Button from './Button'
 import ButtonList from './ButtonList'
-import { IQuoteContainerState } from './QuoteContainer'
 
-export interface IQuoteProps extends IQuoteContainerState {
-  handleNewQuote: (event: React.MouseEvent<Element, MouseEvent>) => void,
-  handleTwitterShare: (event: React.MouseEvent<Element, MouseEvent>) => void
+export interface IQuoteProps {
+  readonly error: string,
+  readonly quote: string,
+  readonly author?: string,
+  readonly isLoading: boolean
 }
+export interface ISocialMediaHandlerProps extends IQuoteProps {
+  readonly handleNewQuote: (event: React.MouseEvent<Element, MouseEvent>) => void,
+  readonly handleTwitterShare: (event: React.MouseEvent<Element, MouseEvent>) => void
+}
+
 
 const RefreshIcon = styled(Refresh)`
   stroke-width: 2;
@@ -19,7 +25,7 @@ const TwitterIcon = styled(Twitter)`
   stroke-width: 2;
 `
 
-export default (props: IQuoteProps): JSX.Element => {
+export default (props: ISocialMediaHandlerProps): JSX.Element => {
   const { handleNewQuote, handleTwitterShare, isLoading } = props
   return (
     <QuoteBody>
@@ -41,7 +47,7 @@ export default (props: IQuoteProps): JSX.Element => {
 }
 
 const renderQuote = (props: IQuoteProps) => {
-  if (props.quote !== '' && props.error === '' && !props.isLoading) {
+  if (props.quote !== '' && props.author !== '' && props.error === '' && !props.isLoading) {
     return (
       <QuoteContent key="quote-content">
         “{props.quote}”
